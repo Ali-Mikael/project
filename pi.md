@@ -17,7 +17,7 @@ I ssh:d into it and downloaded the PiVPN software with the command `curl -L http
 - The PiVPN then ran an installation wizard to configure some basic setting like IP-addressing, hostnames, unattended upgrades, firewall, ports etc.
 
 #### Dynamic Domain Name Service - DDNS
-I needed a dynamic domain name for my Raspberry Pi, since my public IP address changes frequently. A dynamic domain provides a more permanent solution that the VPN client can consistently connect to. This eliminates the need to manually update the client profile each time the IP address changes.
+I needed a dynamic domain name for my Raspberry Pi/VPN-server, since my public IP address changes frequently. A dynamic domain provides a more permanent solution that the VPN client can consistently connect to. This eliminates the need to manually update the client profile each time the IP address changes.
 - I created my dynamic domain name on <https://freedns.afraid.org> and set the mapping to `0.0.0.0`
 - Back on my Ras-pi I downloaded `ddclient` to automatically update the dynamic DNS service with my current public IP address.
 - I copied a template from the freedns.afraid.org website to use in my `ddclient` configuration file and put in my own credentials.
@@ -28,8 +28,9 @@ I needed a dynamic domain name for my Raspberry Pi, since my public IP address c
 
 
 #### Creating the client profile
-Once my DDNS was up and running, I configured the client profile to include the domain name to connect to the VPN. Now I could just create two new profiles with the command `$ pivpn -a` (a as in add). 
-- <img width="770" alt="Screenshot 2025-04-18 at 18 31 35" src="https://github.com/user-attachments/assets/079cebf5-78c0-45cf-a776-bfa1d0fabbaf" />
+Once my DDNS was up and running, I configured the client profile to use the domain name as the target address for the VPN host. Now I could just create two new profiles with the command `$ pivpn -a` (a as in add). 
+- su,m
+  - <img width="770" alt="Screenshot 2025-04-18 at 18 31 35" src="https://github.com/user-attachments/assets/079cebf5-78c0-45cf-a776-bfa1d0fabbaf" />
 
 
 
